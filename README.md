@@ -1,6 +1,6 @@
-# CareerPilot 🧭
+# CareerCompass 🧭
 
-CareerPilot helps students discover career paths that genuinely fit their skills and personality, then hands them a personalized roadmap of resources to pursue that path — not just a quiz result.
+CareerCompass helps students discover career paths that genuinely fit their skills and personality, then hands them a personalized roadmap of resources to pursue that path — not just a quiz result.
 
 ## Table of Contents
 
@@ -67,13 +67,13 @@ Create a `.env` file inside `backend/`:
 
 ```
 JWT_SECRET_KEY=your_secret_key_here
-DATABASE_URL=sqlite:///careerpilot.db
+DATABASE_URL=sqlite:///careercompass.db
 ```
 
 ## Project Structure
 
 ```
-careerpilot/
+careercompass/
 ├── backend/
 │   ├── models/          # SQLAlchemy models (User, Career, Roadmap, etc.)
 │   ├── routes/           # Flask blueprints / endpoints
