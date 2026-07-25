@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book a Career Coach</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.booking-card{
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+max-width:800px;
+
+margin:auto;
+
+}
+
+.booking-card h2{
+
+margin-bottom:25px;
+
+color:#2563eb;
+
+}
+
+.form-group{
+
+margin-bottom:20px;
+
+}
+
+.form-group label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.form-group input,
+
+.form-group select,
+
+.form-group textarea{
+
+width:100%;
+
+padding:15px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+.form-group textarea{
+
+height:140px;
+
+resize:none;
+
+}
+
+.submit-btn{
+
+width:100%;
+
+padding:16px;
+
+background:#2563eb;
+
+border:none;
+
+border-radius:10px;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.submit-btn:hover{
+
+background:#1d4ed8;
+
+}
+
+.info-box{
+
+background:#eef4ff;
+
+padding:20px;
+
+border-left:5px solid #2563eb;
+
+margin-bottom:25px;
+
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Career<span>Compass</span>
+
+</div>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+
+<li><a href="assessment.html"><i class="fas fa-clipboard-list"></i> Assessment</a></li>
+
+<li><a href="recommendations.html"><i class="fas fa-lightbulb"></i> Recommendations</a></li>
+
+<li><a href="roadmap.html"><i class="fas fa-road"></i> Roadmap</a></li>
+
+<li><a href="ai-coach.html"><i class="fas fa-robot"></i> AI Coach</a></li>
+
+<li><a href="coaches.html"><i class="fas fa-user-tie"></i> Coaches</a></li>
+
+<li class="active"><a href="booking.html"><i class="fas fa-calendar-check"></i> Booking</a></li>
+
+<li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+
+<li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<h1>
+
+Book a Career Coaching Session
+
+</h1>
+
+</header>
+
+<div class="booking-card">
+
+<div class="info-box">
+
+<h3>Career Coaching Session</h3>
+
+<p>
+
+Book a one-on-one session with one of our professional career coaches.
+Choose your preferred coach, date and time.
+
+</p>
+
+</div>
+
+<form action="dashboard.html">
+
+<div class="form-group">
+
+<label>
+
+Choose Coach
+
+</label>
+
+<select required>
+
+<option>Sarah Mwangi - Technology</option>
+
+<option>David Otieno - Engineering</option>
+
+<option>Grace Wanjiku - Business</option>
+
+<option>Brian Kiptoo - Medicine</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Session Date
+
+</label>
+
+<input type="date" required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Preferred Time
+
+</label>
+
+<select required>
+
+<option>9:00 AM</option>
+
+<option>10:00 AM</option>
+
+<option>11:00 AM</option>
+
+<option>1:00 PM</option>
+
+<option>2:00 PM</option>
+
+<option>3:00 PM</option>
+
+<option>4:00 PM</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Meeting Type
+
+</label>
+
+<select>
+
+<option>Zoom</option>
+
+<option>Google Meet</option>
+
+<option>Microsoft Teams</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+What would you like help with?
+
+</label>
+
+<textarea placeholder="Tell your coach what you'd like to discuss..."></textarea>
+
+</div>
+
+<button class="submit-btn">
+
+Confirm Booking
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

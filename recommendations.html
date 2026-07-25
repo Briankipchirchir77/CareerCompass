@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Career Recommendations</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.recommendation-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.recommendation-card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.recommendation-card:hover{
+transform:translateY(-8px);
+}
+
+.score{
+font-size:45px;
+font-weight:bold;
+color:#10b981;
+margin:15px 0;
+}
+
+.tag{
+display:inline-block;
+background:#2563eb;
+color:white;
+padding:8px 15px;
+border-radius:20px;
+font-size:14px;
+margin-bottom:15px;
+}
+
+.actions{
+margin-top:25px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 20px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+.btn.secondary{
+background:#10b981;
+}
+
+.summary{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+margin-bottom:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Career<span>Compass</span>
+
+</div>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+
+<li><a href="assessment.html"><i class="fas fa-clipboard-list"></i> Assessment</a></li>
+
+<li class="active"><a href="recommendations.html"><i class="fas fa-lightbulb"></i> Recommendations</a></li>
+
+<li><a href="roadmap.html"><i class="fas fa-road"></i> Roadmap</a></li>
+
+<li><a href="ai-coach.html"><i class="fas fa-robot"></i> AI Coach</a></li>
+
+<li><a href="coaches.html"><i class="fas fa-user-tie"></i> Coaches</a></li>
+
+<li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+
+<li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<h1>Your Career Recommendations</h1>
+
+</header>
+
+<div class="summary">
+
+<h2>Assessment Summary</h2>
+
+<br>
+
+<p>
+
+Your assessment has been analyzed using your personality, skills,
+academic performance and interests.
+
+Below are the careers that best match your profile.
+
+</p>
+
+</div>
+
+<div class="recommendation-grid">
+
+<div class="recommendation-card">
+
+<span class="tag">#1 Best Match</span>
+
+<h2>Software Engineer</h2>
+
+<div class="score">96%</div>
+
+<p>
+
+Excellent analytical thinking,
+strong programming interest,
+high mathematics performance,
+problem-solving ability,
+and technology interest.
+
+</p>
+
+<div class="actions">
+
+<a href="roadmap.html" class="btn">
+
+View Roadmap
+
+</a>
+
+<a href="ai-coach.html" class="btn secondary">
+
+Ask AI Coach
+
+</a>
+
+</div>
+
+</div>
+
+<div class="recommendation-card">
+
+<span class="tag">#2 Match</span>
+
+<h2>Data Scientist</h2>
+
+<div class="score">91%</div>
+
+<p>
+
+Strong analytical skills,
+excellent mathematics,
+curiosity,
+research mindset,
+and logical reasoning.
+
+</p>
+
+<div class="actions">
+
+<a href="roadmap.html" class="btn">
+
+Roadmap
+
+</a>
+
+<a href="ai-coach.html" class="btn secondary">
+
+Ask AI
+
+</a>
+
+</div>
+
+</div>
+
+<div class="recommendation-card">
+
+<span class="tag">#3 Match</span>
+
+<h2>Cyber Security Analyst</h2>
+
+<div class="score">89%</div>
+
+<p>
+
+Problem-solving,
+technology passion,
+attention to detail,
+logical thinking,
+and continuous learning.
+
+</p>
+
+<div class="actions">
+
+<a href="roadmap.html" class="btn">
+
+Roadmap
+
+</a>
+
+<a href="ai-coach.html" class="btn secondary">
+
+AI Coach
+
+</a>
+
+</div>
+
+</div>
+
+<div class="recommendation-card">
+
+<span class="tag">#4 Match</span>
+
+<h2>AI Engineer</h2>
+
+<div class="score">87%</div>
+
+<p>
+
+Programming,
+machine learning interest,
+mathematics,
+creativity,
+and innovation.
+
+</p>
+
+<div class="actions">
+
+<a href="roadmap.html" class="btn">
+
+Roadmap
+
+</a>
+
+<a href="ai-coach.html" class="btn secondary">
+
+AI Coach
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

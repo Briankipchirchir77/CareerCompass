@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Career Coach</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.chat-container{
+background:white;
+height:80vh;
+display:flex;
+flex-direction:column;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+overflow:hidden;
+}
+
+.chat-header{
+background:#2563eb;
+color:white;
+padding:20px;
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.chat-header i{
+font-size:35px;
+}
+
+.chat-body{
+flex:1;
+padding:25px;
+overflow-y:auto;
+background:#f7f9fc;
+}
+
+.message{
+margin-bottom:20px;
+max-width:75%;
+padding:15px;
+border-radius:15px;
+line-height:1.6;
+}
+
+.ai{
+background:#2563eb;
+color:white;
+}
+
+.user{
+background:#10b981;
+color:white;
+margin-left:auto;
+}
+
+.chat-footer{
+display:flex;
+padding:20px;
+background:white;
+border-top:1px solid #ddd;
+}
+
+.chat-footer input{
+flex:1;
+padding:15px;
+border:1px solid #ccc;
+border-radius:10px;
+outline:none;
+}
+
+.chat-footer button{
+margin-left:15px;
+padding:15px 30px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.quick{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.quick button{
+background:#eef4ff;
+border:none;
+padding:10px 15px;
+border-radius:25px;
+cursor:pointer;
+transition:.3s;
+}
+
+.quick button:hover{
+background:#2563eb;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+Career<span>Compass</span>
+</div>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+
+<li><a href="assessment.html"><i class="fas fa-clipboard-list"></i> Assessment</a></li>
+
+<li><a href="recommendations.html"><i class="fas fa-lightbulb"></i> Recommendations</a></li>
+
+<li><a href="roadmap.html"><i class="fas fa-road"></i> Roadmap</a></li>
+
+<li class="active"><a href="ai-coach.html"><i class="fas fa-robot"></i> AI Coach</a></li>
+
+<li><a href="coaches.html"><i class="fas fa-user-tie"></i> Coaches</a></li>
+
+<li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+
+<li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<h1>AI Career Coach</h1>
+
+</header>
+
+<div class="quick">
+
+<button>Why was Software Engineering recommended?</button>
+
+<button>Compare Software Engineering vs Data Science</button>
+
+<button>What course should I take next?</button>
+
+<button>How do I prepare for university?</button>
+
+</div>
+
+<div class="chat-container">
+
+<div class="chat-header">
+
+<i class="fas fa-robot"></i>
+
+<div>
+
+<h2>CareerCompass AI Coach</h2>
+
+<p>Always here to guide you.</p>
+
+</div>
+
+</div>
+
+<div class="chat-body" id="chatBody">
+
+<div class="message ai">
+
+Hello 👋
+
+I'm your AI Career Coach.
+
+I can explain your career recommendations,
+help you understand your roadmap,
+compare careers,
+suggest learning resources,
+and answer questions about university, CBC pathways, and career planning.
+
+How can I help you today?
+
+</div>
+
+</div>
+
+<div class="chat-footer">
+
+<input
+type="text"
+id="message"
+placeholder="Ask me anything about your career...">
+
+<button onclick="sendMessage()">
+
+<i class="fas fa-paper-plane"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+const input=document.getElementById("message");
+
+const chat=document.getElementById("chatBody");
+
+if(input.value.trim()==="") return;
+
+chat.innerHTML+=`
+<div class="message user">
+${input.value}
+</div>
+`;
+
+setTimeout(()=>{
+
+chat.innerHTML+=`
+<div class="message ai">
+
+This is a demo response.
+
+When we connect the Flask backend and Claude/OpenAI API,
+your personalized response will appear here based on your assessment,
+career recommendations,
+saved careers,
+and roadmap.
+
+</div>
+`;
+
+chat.scrollTop=chat.scrollHeight;
+
+},700);
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>

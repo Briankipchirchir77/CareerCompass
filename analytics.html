@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Analytics Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+.analytics-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:25px;
+
+margin-top:30px;
+
+}
+
+.chart-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.chart-card h3{
+
+margin-bottom:20px;
+
+color:#2563eb;
+
+}
+
+.summary{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+margin-bottom:30px;
+
+}
+
+.summary-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+text-align:center;
+
+}
+
+.summary-card h1{
+
+font-size:42px;
+
+color:#10b981;
+
+margin-bottom:10px;
+
+}
+
+.summary-card p{
+
+color:#666;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Career<span>Compass</span>
+
+</div>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+
+<li><a href="assessment.html"><i class="fas fa-clipboard-list"></i> Assessment</a></li>
+
+<li><a href="recommendations.html"><i class="fas fa-lightbulb"></i> Recommendations</a></li>
+
+<li><a href="roadmap.html"><i class="fas fa-road"></i> Roadmap</a></li>
+
+<li><a href="ai-coach.html"><i class="fas fa-robot"></i> AI Coach</a></li>
+
+<li><a href="coaches.html"><i class="fas fa-user-tie"></i> Coaches</a></li>
+
+<li class="active">
+
+<a href="analytics.html">
+
+<i class="fas fa-chart-line"></i>
+
+Analytics
+
+</a>
+
+</li>
+
+<li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<h1>
+
+Career Analytics
+
+</h1>
+
+</header>
+
+<div class="summary">
+
+<div class="summary-card">
+
+<h1>96%</h1>
+
+<p>Top Career Match</p>
+
+</div>
+
+<div class="summary-card">
+
+<h1>65%</h1>
+
+<p>Roadmap Completed</p>
+
+</div>
+
+<div class="summary-card">
+
+<h1>18</h1>
+
+<p>AI Coach Chats</p>
+
+</div>
+
+<div class="summary-card">
+
+<h1>3</h1>
+
+<p>Coaching Sessions</p>
+
+</div>
+
+</div>
+
+<div class="analytics-grid">
+
+<div class="chart-card">
+
+<h3>
+
+Career Match Scores
+
+</h3>
+
+<canvas id="careerChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>
+
+Skills Assessment
+
+</h3>
+
+<canvas id="skillsChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>
+
+Roadmap Progress
+
+</h3>
+
+<canvas id="roadmapChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h3>
+
+AI Coach Usage
+
+</h3>
+
+<canvas id="coachChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+new Chart(document.getElementById("careerChart"),{
+
+type:"bar",
+
+data:{
+
+labels:["Software","Data","Cyber","AI"],
+
+datasets:[{
+
+label:"Match %",
+
+data:[96,91,89,87]
+
+}]
+
+}
+
+});
+
+new Chart(document.getElementById("skillsChart"),{
+
+type:"radar",
+
+data:{
+
+labels:["Programming","Leadership","Creativity","Communication","Problem Solving"],
+
+datasets:[{
+
+label:"Your Skills",
+
+data:[9,7,8,8,10]
+
+}]
+
+}
+
+});
+
+new Chart(document.getElementById("roadmapChart"),{
+
+type:"doughnut",
+
+data:{
+
+labels:["Completed","Remaining"],
+
+datasets:[{
+
+data:[65,35]
+
+}]
+
+}
+
+});
+
+new Chart(document.getElementById("coachChart"),{
+
+type:"line",
+
+data:{
+
+labels:["Mon","Tue","Wed","Thu","Fri"],
+
+datasets:[{
+
+label:"Questions",
+
+data:[2,5,3,6,4]
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>
