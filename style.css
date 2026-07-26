@@ -1,0 +1,386 @@
+/* ==============================
+   CAREERCOMPASS MAIN STYLESHEET
+============================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --bg:#f5f7fb;
+    --surface:#ffffff;
+    --surface-soft:#f8fbff;
+    --text:#14213d;
+    --muted:#5f6d86;
+    --primary:#0f172a;
+    --accent:#c7ff3d;
+    --accent-strong:#a9e325;
+    --border:rgba(15, 23, 42, 0.08);
+    --shadow:0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Fredoka','Segoe UI',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#f9fbff 0%,#eef4ff 45%,#f6f7fb 100%);
+    color:var(--text);
+    overflow-x:hidden;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(199,255,61,0.22), transparent 24%),
+        radial-gradient(circle at 90% 10%, rgba(15,23,42,0.08), transparent 24%);
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+header{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    position:fixed;
+    top:0;
+    z-index:999;
+    box-shadow:0 10px 25px rgba(15,23,42,0.05);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:var(--primary);
+    letter-spacing:0.02em;
+}
+
+.logo span{
+    color:var(--accent-strong);
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--accent-strong);
+}
+
+.login-btn{
+    background:var(--primary);
+    color:#fff;
+    padding:10px 22px;
+    border-radius:999px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:130px 8%;
+    background:linear-gradient(135deg, rgba(199,255,61,0.16), rgba(15,23,42,0.04));
+    border-radius:0 0 32px 32px;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.hero-left h1{
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:20px;
+    color:var(--primary);
+}
+
+.hero-left p{
+    font-size:18px;
+    color:var(--muted);
+    margin-bottom:35px;
+    max-width:620px;
+}
+
+.hero-right{
+    width:45%;
+}
+
+.hero-right img{
+    width:100%;
+    filter:drop-shadow(0 15px 30px rgba(15,23,42,0.12));
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+/* BUTTONS */
+
+.btn-primary{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--primary);
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:999px;
+    transition:.3s;
+    font-weight:700;
+    box-shadow:0 10px 24px rgba(199,255,61,0.24);
+}
+
+.btn-primary:hover{
+    background:var(--accent-strong);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    display:inline-block;
+    background:var(--surface);
+    border:2px solid var(--primary);
+    color:var(--primary);
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:999px;
+}
+
+.btn-secondary:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* SECTION */
+
+section{
+    padding:90px 8%;
+}
+
+section h2{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:50px;
+    color:var(--primary);
+}
+
+/* FEATURES */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:var(--surface);
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.3s;
+    border:1px solid var(--border);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card i{
+    font-size:45px;
+    color:var(--accent-strong);
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:var(--primary);
+}
+
+/* HOW */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.step{
+    background:var(--surface);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.step h3{
+    width:60px;
+    height:60px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-strong));
+    color:var(--primary);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+/* CBC */
+
+.cbc{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+}
+
+.cbc-text{
+    flex:1;
+}
+
+.cbc-text h2{
+    text-align:left;
+}
+
+.cbc-text p{
+    margin:25px 0;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.cbc-image{
+    flex:1;
+}
+
+.cbc-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+/* AI */
+
+.ai{
+    text-align:center;
+    background:linear-gradient(135deg,var(--primary),#1f4a88);
+    color:#fff;
+    border-radius:24px;
+}
+
+.ai p{
+    margin:30px auto;
+    max-width:700px;
+    color:rgba(255,255,255,0.9);
+}
+
+.ai .btn-primary{
+    background:var(--accent);
+    color:var(--primary);
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    background:linear-gradient(135deg,var(--accent),#84c500);
+    color:var(--primary);
+    border-radius:24px;
+}
+
+.cta p{
+    margin:25px auto;
+    max-width:700px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:#fff;
+    padding:60px 8%;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.footer-content a{
+    display:block;
+    color:#d7e1f0;
+    margin-top:12px;
+    text-decoration:none;
+}
+
+.footer-content a:hover{
+    color:var(--accent);
+}
+
+footer .copyright{
+    text-align:center;
+    margin-top:40px;
+    color:#9fb0c7;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-left,
+.hero-right{
+    width:100%;
+}
+
+.hero-left h1{
+    font-size:42px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.cbc{
+    flex-direction:column;
+}
+
+header{
+    flex-direction:column;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:20px;
+}
+
+}
