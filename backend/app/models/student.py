@@ -1,17 +1,16 @@
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 from app.extensions import db
 
 
 class Student(db.Model):
     __tablename__ = "students"
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-
+    password_hash = db.Column(db.String(255), nullable=True)
     # "CBC" or "BRITISH"
     education_system = db.Column(db.String(20), nullable=True)
-
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     # Relationships
@@ -31,6 +30,14 @@ class Student(db.Model):
         "Recommendation", backref="student", cascade="all, delete-orphan"
     )
 
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        if not self.password_hash:
+            return False
+        return check_password_hash(self.password_hash, password)
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -43,7 +50,6 @@ class Student(db.Model):
 
 class Skill(db.Model):
     __tablename__ = "skills"
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     category = db.Column(db.String(30), default="technical")  # technical | soft
@@ -54,7 +60,6 @@ class Skill(db.Model):
 
 class Interest(db.Model):
     __tablename__ = "interests"
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     category = db.Column(db.String(50), nullable=True)
@@ -65,12 +70,10 @@ class Interest(db.Model):
 
 class StudentSkill(db.Model):
     __tablename__ = "student_skills"
-
     id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.Integer, db.ForeignKey("students.id"), nullable=False)
     skill_id = db.Column(db.Integer, db.ForeignKey("skills.id"), nullable=False)
     proficiency_level = db.Column(db.String(20), default="intermediate")  # beginner|intermediate|advanced
-
     skill = db.relationship("Skill")
 
     __table_args__ = (db.UniqueConstraint("student_id", "skill_id", name="uq_student_skill"),)
@@ -85,11 +88,9 @@ class StudentSkill(db.Model):
 
 class StudentInterest(db.Model):
     __tablename__ = "student_interests"
-
     id = db.Column(db.Integer, primary_key=True)
     student_id = db.Column(db.Integer, db.ForeignKey("students.id"), nullable=False)
     interest_id = db.Column(db.Integer, db.ForeignKey("interests.id"), nullable=False)
-
     interest = db.relationship("Interest")
 
     __table_args__ = (db.UniqueConstraint("student_id", "interest_id", name="uq_student_interest"),)
