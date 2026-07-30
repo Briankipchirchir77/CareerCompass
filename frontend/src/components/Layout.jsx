@@ -1,9 +1,7 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
-export default function Layout() {
+function Layout({ title, subtitle, children }) {
   return (
     <div className="app-shell">
       <Sidebar />
@@ -12,9 +10,19 @@ export default function Layout() {
         <Navbar />
 
         <main className="page-content">
-          <Outlet />
+          <section className="page-banner">
+            <div>
+              <p className="eyebrow">CareerCompass</p>
+              <h1>{title}</h1>
+              {subtitle ? <p>{subtitle}</p> : null}
+            </div>
+          </section>
+
+          <div className="page-body">{children}</div>
         </main>
       </div>
     </div>
   );
 }
+
+export default Layout;

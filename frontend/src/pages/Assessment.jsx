@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import { getQuestions } from "../services/questionApi";
+import { saveAssessmentResult, scoreAssessment } from "../services/localData";
 
 function Assessment() {
   const [questions, setQuestions] = useState([]);
@@ -11,6 +13,7 @@ function Assessment() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [completed, setCompleted] = useState(false);
+  const [result, setResult] = useState(null);
 
   useEffect(() => {
     async function loadQuestions() {
@@ -46,6 +49,9 @@ function Assessment() {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
+      const assessmentResult = scoreAssessment(nextAnswers);
+      saveAssessmentResult(assessmentResult);
+      setResult(assessmentResult);
       setCompleted(true);
     }
   }
@@ -124,7 +130,15 @@ function Assessment() {
         <div className="result-card">
           <FaCheckCircle />
           <h3>Assessment completed</h3>
-          <p>Your responses have been saved. We recommend reviewing the opportunities below.</p>
+          <p>
+            Your responses have been saved. Your strongest pathway right now is{" "}
+            <strong>{result?.topPathway?.title || "Career Explorer"}</strong>.
+          </p>
+          <div className="chip-row">
+            {(result?.topPathway?.subjects || []).map((subject) => (
+              <span key={subject} className="chip">{subject}</span>
+            ))}
+          </div>
           <ul className="list-compact">
             {answers.map((entry, index) => (
               <li key={`${entry.question}-${index}`}>
@@ -132,6 +146,10 @@ function Assessment() {
               </li>
             ))}
           </ul>
+          <div className="button-row">
+            <Link className="btn-primary" to="/recommendations">View recommendations</Link>
+            <Link className="btn-secondary" to="/booking">Book a coach</Link>
+          </div>
         </div>
       )}
     </Layout>

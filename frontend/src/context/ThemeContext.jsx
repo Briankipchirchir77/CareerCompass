@@ -1,7 +1,5 @@
-import { createContext, useContext, useState, useEffect } from "react";
-
-// 1. Create the context right here
-export const ThemeContext = createContext();
+import { useState, useEffect } from "react";
+import { ThemeContext } from "./theme";
 
 const THEME_STORAGE_KEY = "careercompass-theme";
 
@@ -24,9 +22,4 @@ export function ThemeProvider({ children }) {
       {children}
     </ThemeContext.Provider>
   );
-}
-
-// Custom hook to consume the theme easily in Navbar or Settings
-export function useTheme() {
-  return useContext(ThemeContext);
 }

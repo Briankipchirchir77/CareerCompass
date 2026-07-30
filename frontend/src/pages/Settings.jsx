@@ -1,11 +1,17 @@
 import { useContext, useState } from "react";
 import Layout from "../components/Layout";
 import { ThemeContext } from "../context/theme";
+import { getSettings, saveSettings } from "../services/localData";
 
 export default function Settings() {
   const { darkMode, setDarkMode } = useContext(ThemeContext);
-  const [weeklyRecommendations, setWeeklyRecommendations] = useState(true);
-  const [coachReminders, setCoachReminders] = useState(true);
+  const [settings, setSettings] = useState(() => getSettings());
+
+  function updateSetting(field, value) {
+    const nextSettings = { ...settings, [field]: value };
+    setSettings(nextSettings);
+    saveSettings(nextSettings);
+  }
 
   return (
     <Layout title="Settings" subtitle="Control how you receive updates and manage your learning experience.">
@@ -17,8 +23,8 @@ export default function Settings() {
           </div>
           <input
             type="checkbox"
-            checked={weeklyRecommendations}
-            onChange={(event) => setWeeklyRecommendations(event.target.checked)}
+            checked={settings.weeklyRecommendations}
+            onChange={(event) => updateSetting("weeklyRecommendations", event.target.checked)}
             aria-label="Receive weekly recommendations"
           />
         </div>
@@ -29,9 +35,21 @@ export default function Settings() {
           </div>
           <input
             type="checkbox"
-            checked={coachReminders}
-            onChange={(event) => setCoachReminders(event.target.checked)}
+            checked={settings.coachReminders}
+            onChange={(event) => updateSetting("coachReminders", event.target.checked)}
             aria-label="Receive coach reminders"
+          />
+        </div>
+        <div className="setting-item">
+          <div>
+            <h3>Parent summary</h3>
+            <p>Prepare a short progress summary for parents or guardians.</p>
+          </div>
+          <input
+            type="checkbox"
+            checked={settings.parentSummary}
+            onChange={(event) => updateSetting("parentSummary", event.target.checked)}
+            aria-label="Enable parent summary"
           />
         </div>
         <div className="setting-item">
