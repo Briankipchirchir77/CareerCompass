@@ -40,7 +40,7 @@ CareerCompass helps students discover career paths that genuinely fit their skil
 
 ### Prerequisites
 
-- Node.js (v18+) and npm
+- Node.js (v20+ or v22+) and npm
 - Python 3.10+ and pip
 
 ### Backend Setup
@@ -50,7 +50,7 @@ cd backend
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-python app.py
+python run.py
 ```
 
 ### Frontend Setup
@@ -58,7 +58,7 @@ python app.py
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
 ### Environment Variables
@@ -73,18 +73,26 @@ DATABASE_URL=sqlite:///careercompass.db
 ## Project Structure
 
 ```
-careercompass/
+CareerCompass/
 ├── backend/
-│   ├── models/          # SQLAlchemy models (User, Career, Roadmap, etc.)
-│   ├── routes/           # Flask blueprints / endpoints
-│   ├── app.py             # App entry point
-│   └── requirements.txt
-├── frontend/
+│   ├── app/
+│   │   ├── models/      # SQLAlchemy models
+│   │   ├── routes/      # Flask blueprints / endpoints
+│   │   └── extensions.py
+│   ├── config.py
+│   ├── requirements.txt
+│   ├── run.py
+│   └── seed.py
+├── frontend/            # React SPA frontend
 │   ├── src/
-│   │   ├── components/  # Reusable UI components
-│   │   ├── pages/         # Route-level views
-│   │   └── App.js
-│   └── package.json
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── styles/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── .env.example
+├── docs/
 └── README.md
 ```
 
