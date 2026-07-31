@@ -3,3 +3,9 @@ __pycache__/
 instance/*.db
 .env
 venv/
+# Add node_modules to your root .gitignore
+echo "node_modules/" >> .gitignore
+echo "frontend/node_modules/" >> .gitignore
+echo "career-compass/node_modules/" >> .gitignore
+echo "node_modules/" >> .gitignore
+echo "frontend/" >> .gitignore
