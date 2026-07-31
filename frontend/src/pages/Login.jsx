@@ -28,7 +28,7 @@ function Login() {
     const form = e.target;
     const email = form.email.value.trim();
     const password = form.password.value;
-    const name = form.name.value.trim();
+    const name = isRegisterMode ? form.name.value.trim() : "";
 
     const endpoint = isRegisterMode ? "/api/auth/register" : "/api/auth/login";
     const body = isRegisterMode ? { name, email, password } : { email, password };
