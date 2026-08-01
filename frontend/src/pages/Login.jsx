@@ -28,7 +28,7 @@ function Login() {
     const form = e.target;
     const email = form.email.value.trim();
     const password = form.password.value;
-    const name = isRegisterMode ? form.name.value.trim() : "";
+    const name = isRegisterMode ? form.fullName.value.trim() : "";
 
     const endpoint = isRegisterMode ? "/api/auth/register" : "/api/auth/login";
     const body = isRegisterMode ? { name, email, password } : { email, password };
@@ -51,7 +51,7 @@ function Login() {
       localStorage.setItem("careercompass-token", data.access_token);
       setUser(data.student);
       navigate("/dashboard");
-    } catch (err) {
+    } catch {
       setMessage("Could not reach the server. Please try again.");
     } finally {
       setLoading(false);
@@ -149,7 +149,7 @@ function Login() {
             {isRegisterMode && (
               <>
                 <label className="sr-only" htmlFor="name">Full name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" autoComplete="name" required />
+                <input id="name" name="fullName" type="text" placeholder="Your name" autoComplete="name" required />
               </>
             )}
             <label className="sr-only" htmlFor="email">Email address</label>
