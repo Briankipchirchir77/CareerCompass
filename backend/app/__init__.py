@@ -11,7 +11,10 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
-    CORS(app)  # allow the frontend (Magic Patterns / React app) to call this API
+    CORS(app, origins=[
+        "https://career-compass-snowy.vercel.app",
+        "http://localhost:5173",
+    ])
     JWTManager(app)
 
     from app.routes.students import students_bp
